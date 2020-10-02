@@ -1,0 +1,9 @@
+
+#Directories to Ignore
+
+Ode_To_Food.Web/Scripts
+Ode_To_Food.Web/Content
+Ode_To_Food.Web/bin
+Ode_To_Food.Web/obj
+.vs
+packages
