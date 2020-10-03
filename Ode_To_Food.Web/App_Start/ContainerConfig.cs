@@ -30,7 +30,9 @@ namespace Ode_To_Food.Web
             // Specific Services you want builder to keep track of
             builder.RegisterType<InMemoryRestaurantData>()                  // Direct autofac container builder to watch for and manage
                 .As<IRestaurantData>()                                     // all requests that need to implement IRestaurantData by utilizing the InMemoryRestaurantData type.
-                .SingleInstance();
+                .SingleInstance();  
+            // Everytime IRestaurantData Interface is implemented. The container service does the work of
+            // instantiating a new InMemoryRestaurantData class.. (which initially holds our hardcoded data.. later to be moved to real DB)
             // Here we get the 'magic' of the container/wrapper by instructing it (container-builder)
             // that anywhere in the whole application where an IRestaurantData type implementation 
             // is needed, to use the specified type we put in on the first line (InMemoryRestaurantData).
