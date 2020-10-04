@@ -14,5 +14,7 @@ namespace Ode_To_Food.Data.Services
         Restaurant Get(int id);                                 // Get specific restaurant by integer id that's passed in on query param
 
         void Add(Restaurant restaurant);                        // Method to implement adding restaurants from our post action methods
+
+        void Update(Restaurant restaurant);                     // Using a Post method in Restaurant Controller. This effectively Updates an edited restaurant
     }
 }

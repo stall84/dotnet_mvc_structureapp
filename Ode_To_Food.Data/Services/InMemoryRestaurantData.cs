@@ -35,5 +35,19 @@ namespace Ode_To_Food.Data.Services
         {
             return restaurants.OrderBy(r => r.Id);
         }
+
+        public void Update(Restaurant restaurant)
+        {
+            var existing = Get(restaurant.Id);                      // Grab the existing restaurant from our list matched by the 
+                                                                    // incoming restaurant.id from controller Edit (post) action
+            if(existing != null)
+            {
+                existing.Name = restaurant.Name;                    // Set existing restaurants (from List above) to incoming name
+                existing.Cuisine = restaurant.Cuisine;              // Set existing to incoming
+            }
+
+        }
+
+
     }
 }
