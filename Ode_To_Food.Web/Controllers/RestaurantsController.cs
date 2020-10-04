@@ -1,4 +1,5 @@
-﻿using Ode_To_Food.Data.Services;
+﻿using Ode_To_Food.Data.Models;
+using Ode_To_Food.Data.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,11 @@ namespace Ode_To_Food.Web.Controllers
         public ActionResult Create()
         {
             return View();
+        }
+
+        public ActionResult Create(Restaurant restaurant)                   // Passing in a Restaurant object will have the MVC framework 'look' for properties of the same name as the 
+        {                                                                   // properties/fields on the Restaurant class (namespace Ode..Data/Models/Restaurant.cs) which will be coming in 
+            return View()                                                   // on the request body from the form-post. This is known as 'Model-Binding' in MVC framework
         }
     }
 }
