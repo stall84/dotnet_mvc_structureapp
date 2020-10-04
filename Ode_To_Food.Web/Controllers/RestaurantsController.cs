@@ -16,15 +16,17 @@ namespace Ode_To_Food.Web.Controllers
         {                                                           // Setting our db field to track the data model (IRestaurantData)
             this.db = db;
         }
+        [HttpGet]
         public ActionResult Index()
         {
-            var model = db.GetAll();                    // Instantiate a local object 'model' that pulls the GetAll method off our Interface
-            return View(model);                         // Pass the local model instance into the View being returned
+            var model = db.GetAll();                                                            // Instantiate a local object 'model' that pulls the GetAll method off our Interface
+            return View(model);                                                                 // Pass the local model instance into the View being returned
         }
 
-        public ActionResult Details(int id)             // Will associate integer specified in route as id parameter
-        {                                               // We will want to add some logic to check for the existence of a restaurant Id in database so that if it doesn't
-            var model = db.Get(id);                     // exist, we will fail-soft in some way instead of throwing an exception or crashing
+        [HttpGet]
+        public ActionResult Details(int id)                                                     // Will associate integer specified in route as id parameter
+        {                                                                                       // We will want to add some logic to check for the existence of a restaurant Id in database so that if it doesn't
+            var model = db.Get(id);                                                             // exist, we will fail-soft in some way instead of throwing an exception or crashing
             if (model == null)
             {
                 return View("NotFound");
@@ -32,14 +34,31 @@ namespace Ode_To_Food.Web.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
 
-        public ActionResult Create(Restaurant restaurant)                   // Passing in a Restaurant object will have the MVC framework 'look' for properties of the same name as the 
-        {                                                                   // properties/fields on the Restaurant class (namespace Ode..Data/Models/Restaurant.cs) which will be coming in 
-            return View()                                                   // on the request body from the form-post. This is known as 'Model-Binding' in MVC framework
+        [HttpPost]
+        [ValidateAntiForgeryToken]                                                  // Validates the token MVC adds to the related form 
+
+                                                                                    // Passing in a Restaurant object will have the MVC framework 'look' for properties of the same name as the
+                                                                                    // properties/fields on the Restaurant class (namespace Ode..Data/Models/Restaurant.cs) which will be coming in
+                                                                                    // on the request body from the form-post. This is known as 'Model-Binding' in MVC framework 
+        public ActionResult Create(Restaurant restaurant)                   
+        {              
+            if ( String.IsNullOrEmpty(restaurant.Name))                                                 // Create an 'explicit' validation check for the user input coming back on the form post request obj
+            {                                                                                           // This checks if the name value is empty or null and returns an AddModelError for the Name form field, with error message
+                ModelState.AddModelError(nameof(restaurant.Name), "The name is required");
+            }
+            if ( ModelState.IsValid )
+            {
+                db.Add(restaurant);                                                                     // If validation passes (IsValid == true), add the new restaurant object into the db and 
+                return View();                                                                          // return the appropriate view
+            }
+            return View();                                                                              // Otherwise: re-return the user the View with the form to try again.
+                                                            
         }
     }
 }
