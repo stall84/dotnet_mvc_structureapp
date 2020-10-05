@@ -10,8 +10,9 @@ namespace Ode_To_Food.Data.Models
 {
     public class Restaurant
     {
-        public int Id { get; set; }
-        [Required]                                                                          // After bringing in ComponentModel.DataAnnotations namespace, Data Annotation is available for properties/fields
+        public int Id { get; set; }                                             // After bringing in ComponentModel.DataAnnotations namespace, Data Annotation is available for properties/fields
+        [Required]
+        
         public string Name { get; set; }                                                    // If Name is not input by user, Validation will not pass/return true in Restaurant controller's post create method
         [Required]
         [Display(Name="Type of Cuisine")]

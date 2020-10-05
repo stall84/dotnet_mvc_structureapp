@@ -28,9 +28,10 @@ namespace Ode_To_Food.Web
             builder.RegisterControllers(typeof(MvcApplication).Assembly);          // Scans project for controllers in the assembly - location you pass-in
             builder.RegisterApiControllers(typeof(MvcApplication).Assembly);        // Scans project for API controllers and adds them to builder
             // Specific Services you want builder to keep track of
-            builder.RegisterType<InMemoryRestaurantData>()                  // Direct autofac container builder to watch for and manage
-                .As<IRestaurantData>()                                     // all requests that need to implement IRestaurantData by utilizing the InMemoryRestaurantData type.
-                .SingleInstance();  
+            builder.RegisterType<SqlRestaurantData>()                       // Direct autofac container builder to watch for and manage
+                .As<IRestaurantData>()                                      // all requests that need to implement IRestaurantData by utilizing the InMemoryRestaurantData type.
+                .InstancePerRequest();                                      // Per request instantiation / utilization
+                /*.SingleInstance();*/                                          // Once sql database brought in we will no longer want a Singleton (entire life) . But will want just a single instance life-span
             // Everytime IRestaurantData Interface is implemented. The container service does the work of
             // instantiating a new InMemoryRestaurantData class.. (which initially holds our hardcoded data.. later to be moved to real DB)
             // Here we get the 'magic' of the container/wrapper by instructing it (container-builder)
