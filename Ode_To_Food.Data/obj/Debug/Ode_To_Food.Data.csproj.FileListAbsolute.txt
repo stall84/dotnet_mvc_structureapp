@@ -10,3 +10,9 @@ C:\Users\stall\OneDrive\Desktop\Projects\Ode_To_Food\Ode_To_Food\Ode_To_Food.Dat
 C:\Users\stall\OneDrive\Desktop\Projects\Ode_To_Food\Ode_To_Food\Ode_To_Food.Data\obj\Debug\Ode_To_Food.Data.dll
 C:\Users\stall\OneDrive\Desktop\Projects\Ode_To_Food\Ode_To_Food\Ode_To_Food.Data\obj\Debug\Ode_To_Food.Data.pdb
 C:\Users\stall\OneDrive\Desktop\Projects\Ode_To_Food\Ode_To_Food\Ode_To_Food.Data\obj\Debug\Ode_To_Food.Data.csprojAssemblyReference.cache
+C:\Users\stall\OneDrive\Desktop\Projects\Ode_To_Food\Ode_To_Food\Ode_To_Food.Data\bin\Debug\Ode_To_Food.Data.dll.config
+C:\Users\stall\OneDrive\Desktop\Projects\Ode_To_Food\Ode_To_Food\Ode_To_Food.Data\bin\Debug\EntityFramework.dll
+C:\Users\stall\OneDrive\Desktop\Projects\Ode_To_Food\Ode_To_Food\Ode_To_Food.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\stall\OneDrive\Desktop\Projects\Ode_To_Food\Ode_To_Food\Ode_To_Food.Data\bin\Debug\EntityFramework.xml
+C:\Users\stall\OneDrive\Desktop\Projects\Ode_To_Food\Ode_To_Food\Ode_To_Food.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\stall\OneDrive\Desktop\Projects\Ode_To_Food\Ode_To_Food\Ode_To_Food.Data\obj\Debug\Ode_To_Food.Data.csproj.CopyComplete

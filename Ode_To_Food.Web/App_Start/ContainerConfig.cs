@@ -31,7 +31,8 @@ namespace Ode_To_Food.Web
             builder.RegisterType<SqlRestaurantData>()                       // Direct autofac container builder to watch for and manage
                 .As<IRestaurantData>()                                      // all requests that need to implement IRestaurantData by utilizing the InMemoryRestaurantData type.
                 .InstancePerRequest();                                      // Per request instantiation / utilization
-                /*.SingleInstance();*/                                          // Once sql database brought in we will no longer want a Singleton (entire life) . But will want just a single instance life-span
+            /*.SingleInstance();*/                                          // Once sql database brought in we will no longer want a Singleton (entire life) . But will want just a single instance life-span
+            builder.RegisterType<OdeToFoodDbContext>().InstancePerRequest();                     // ALSO must direct which type SqlRestaurantData will need injected into the constructor for each instance (OdeDbContext)
             // Everytime IRestaurantData Interface is implemented. The container service does the work of
             // instantiating a new InMemoryRestaurantData class.. (which initially holds our hardcoded data.. later to be moved to real DB)
             // Here we get the 'magic' of the container/wrapper by instructing it (container-builder)
