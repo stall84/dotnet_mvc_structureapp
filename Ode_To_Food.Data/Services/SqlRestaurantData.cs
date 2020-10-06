@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,6 +26,13 @@ namespace Ode_To_Food.Data.Services
         {                                                               // The DbSET method is made available via our constructor injection of OTFDbContext
             db.Restaurants.Add(restaurant);
             db.SaveChanges();                                           // SaveChanges signals EF to create the new insert or delete or whatever statement & write to the db. otherwise changes aren't made
+        }
+
+        public void Delete(int id)
+        {
+            var restaurant = db.Restaurants.Find(id);
+            db.Restaurants.Remove(restaurant);
+            db.SaveChanges();
         }
 
         public Restaurant Get(int id)

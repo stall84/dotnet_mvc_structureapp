@@ -11,6 +11,7 @@ namespace Ode_To_Food.Data.Services
     public class OdeToFoodDbContext : DbContext
     {
         public DbSet<Restaurant> Restaurants { get; set; }                      // Using type DbSet. Entity Framework will assume/look-for a table named 'Restaurants'
+                                                                                // Will apply the Restaurant model to the table columns of the entries going into/coming out of db
 
     }
 }

@@ -16,5 +16,7 @@ namespace Ode_To_Food.Data.Services
         void Add(Restaurant restaurant);                        // Method to implement adding restaurants from our post action methods
 
         void Update(Restaurant restaurant);                     // Using a Post method in Restaurant Controller. This effectively Updates an edited restaurant
+
+        void Delete(int id); 
     }
 }
